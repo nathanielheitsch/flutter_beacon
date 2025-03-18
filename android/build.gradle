@@ -1,37 +1,61 @@
 group 'com.flutterbeacon'
 version '1.0-SNAPSHOT'
+
 buildscript {
+    ext.kotlin_version = '1.9.20'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
-rootProject.allprojects {
+
+allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
+
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 android {
-    compileSdkVersion 30
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.flutter_beacon'
+    }
+    compileSdkVersion 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
 
     defaultConfig {
-        minSdkVersion 18
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 24
     }
     lintOptions {
         disable 'InvalidPackage'
     }
+    
+    dependencies {
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation "org.altbeacon:android-beacon-library:2.19"
+    }
 }
 
-dependencies {
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
-    //api 'org.altbeacon:android-beacon-library:2.16.3'
-    //api "org.altbeacon:android-beacon-library:2.17.1"
-    api "org.altbeacon:android-beacon-library:2.19"
-}

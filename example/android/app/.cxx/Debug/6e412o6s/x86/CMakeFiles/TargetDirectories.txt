@@ -1,0 +1,2 @@
+/Users/nathanielheitsch/projects/forks/flutter_beacon/example/android/app/.cxx/Debug/6e412o6s/x86/CMakeFiles/edit_cache.dir
+/Users/nathanielheitsch/projects/forks/flutter_beacon/example/android/app/.cxx/Debug/6e412o6s/x86/CMakeFiles/rebuild_cache.dir

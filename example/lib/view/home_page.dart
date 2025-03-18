@@ -58,7 +58,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       print('STATE READY');
       if (currentIndex == 0) {
         print('SCANNING');
-        controller.startScanning();
+        final ready = await flutterBeacon.initializeAndCheckScanning;
+        if (ready) controller.startScanning();
       } else {
         print('BROADCASTING');
         controller.startBroadcasting();
