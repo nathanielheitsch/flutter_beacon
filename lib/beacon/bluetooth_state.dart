@@ -47,9 +47,7 @@ class BluetoothState {
   final bool isIOS;
 
   /// Shows that bluetooth state is off.
-  static const stateOff = BluetoothState.init(
-    'STATE_OFF',
-  );
+  static const stateOff = BluetoothState.init('STATE_OFF');
 
   /// Shows that bluetooth state is turning off.
   ///
@@ -60,9 +58,7 @@ class BluetoothState {
   );
 
   /// Shows that bluetooth state is on.
-  static const stateOn = BluetoothState.init(
-    'STATE_ON',
-  );
+  static const stateOn = BluetoothState.init('STATE_ON');
 
   /// Shows that bluetooth state is turning on.
   ///
@@ -73,9 +69,7 @@ class BluetoothState {
   );
 
   /// Shows that bluetooth state is unknown. This is the default.
-  static const stateUnknown = BluetoothState.init(
-    'STATE_UNKNOWN',
-  );
+  static const stateUnknown = BluetoothState.init('STATE_UNKNOWN');
 
   /// Shows that bluetooth state is resetting.
   ///
@@ -86,9 +80,7 @@ class BluetoothState {
   );
 
   /// Shows that bluetooth state is unsupported.
-  static const stateUnsupported = BluetoothState.init(
-    'STATE_UNSUPPORTED',
-  );
+  static const stateUnsupported = BluetoothState.init('STATE_UNSUPPORTED');
 
   /// Shows that bluetooth state is unauthorized.
   ///

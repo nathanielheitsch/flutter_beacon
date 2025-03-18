@@ -8,7 +8,7 @@ part of flutter_beacon;
 enum MonitoringEventType {
   didEnterRegion,
   didExitRegion,
-  didDetermineStateForRegion
+  didDetermineStateForRegion,
 }
 
 /// Enum for defining monitoring state
@@ -29,9 +29,9 @@ class MonitoringResult {
 
   /// Constructor for deserialize dynamic json into [MonitoringResult].
   MonitoringResult.from(dynamic json)
-      : this.monitoringEventType = _parseMonitoringEventType(json['event']),
-        this.monitoringState = _parseMonitoringState(json['state']),
-        this.region = Region.fromJson(json['region']);
+    : this.monitoringEventType = _parseMonitoringEventType(json['event']),
+      this.monitoringState = _parseMonitoringState(json['state']),
+      this.region = Region.fromJson(json['region']);
 
   /// Parsing dynamic state into [MonitoringState].
   static MonitoringState? _parseMonitoringState(dynamic state) {

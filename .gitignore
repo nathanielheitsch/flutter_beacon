@@ -222,4 +222,6 @@ test/.test_coverage.dart
 
 example/ios/Flutter/.last_build_id
 
+.fvm
+
 # End of https://www.gitignore.io/api/dart,flutter,androidstudio,visualstudiocode

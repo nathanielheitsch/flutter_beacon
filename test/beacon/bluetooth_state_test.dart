@@ -14,16 +14,8 @@ void main() {
   });
 
   test('bluetooth state must be equal', () {
-    final stateA = BluetoothState.init(
-      'VALUE',
-      isAndroid: true,
-      isIOS: false,
-    );
-    final stateB = BluetoothState.init(
-      'VALUE',
-      isAndroid: true,
-      isIOS: false,
-    );
+    final stateA = BluetoothState.init('VALUE', isAndroid: true, isIOS: false);
+    final stateB = BluetoothState.init('VALUE', isAndroid: true, isIOS: false);
     expect(stateA, stateB);
     expect(stateA.hashCode, stateB.hashCode);
     expect(stateA.value, stateB.value);
@@ -45,17 +37,27 @@ void main() {
 
   test('parse bluetooth state value', () {
     expect(BluetoothState.parse('STATE_OFF'), BluetoothState.stateOff);
-    expect(BluetoothState.parse('STATE_TURNING_OFF'),
-        BluetoothState.stateTurningOff);
+    expect(
+      BluetoothState.parse('STATE_TURNING_OFF'),
+      BluetoothState.stateTurningOff,
+    );
     expect(BluetoothState.parse('STATE_ON'), BluetoothState.stateOn);
-    expect(BluetoothState.parse('STATE_TURNING_ON'),
-        BluetoothState.stateTurningOn);
+    expect(
+      BluetoothState.parse('STATE_TURNING_ON'),
+      BluetoothState.stateTurningOn,
+    );
     expect(BluetoothState.parse('STATE_UNKNOWN'), BluetoothState.stateUnknown);
     expect(
-        BluetoothState.parse('STATE_RESETTING'), BluetoothState.stateResetting);
-    expect(BluetoothState.parse('STATE_UNSUPPORTED'),
-        BluetoothState.stateUnsupported);
-    expect(BluetoothState.parse('STATE_UNAUTHORIZED'),
-        BluetoothState.stateUnauthorized);
+      BluetoothState.parse('STATE_RESETTING'),
+      BluetoothState.stateResetting,
+    );
+    expect(
+      BluetoothState.parse('STATE_UNSUPPORTED'),
+      BluetoothState.stateUnsupported,
+    );
+    expect(
+      BluetoothState.parse('STATE_UNAUTHORIZED'),
+      BluetoothState.stateUnauthorized,
+    );
   });
 }

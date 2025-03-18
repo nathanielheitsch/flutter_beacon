@@ -43,18 +43,16 @@ class Region {
 
   /// Constructor for deserialize json [Map] into [Region] object.
   Region.fromJson(dynamic json)
-      : this(
-          identifier: json['identifier'],
-          proximityUUID: json['proximityUUID'],
-          major: _parseMajorMinor(json['major']),
-          minor: _parseMajorMinor(json['minor']),
-        );
+    : this(
+        identifier: json['identifier'],
+        proximityUUID: json['proximityUUID'],
+        major: _parseMajorMinor(json['major']),
+        minor: _parseMajorMinor(json['minor']),
+      );
 
   /// Return the serializable of this object into [Map].
   dynamic get toJson {
-    final map = <String, dynamic>{
-      'identifier': identifier,
-    };
+    final map = <String, dynamic>{'identifier': identifier};
 
     if (proximityUUID != null) {
       map['proximityUUID'] = proximityUUID;

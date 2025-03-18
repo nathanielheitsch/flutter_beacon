@@ -4,10 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 main() {
   test('MonitoringEventType must equalTo "didEnterRegion', () {
     final map = {
-      'region': {
-        'identifier': 'id',
-        'proximityUUID': 'UUID',
-      },
+      'region': {'identifier': 'id', 'proximityUUID': 'UUID'},
       'event': 'didEnterRegion',
     };
     final enter = MonitoringResult.from(map);
@@ -21,10 +18,7 @@ main() {
 
   test('MonitoringEventType must equalTo "didExitRegion', () {
     final map = {
-      'region': {
-        'identifier': 'id',
-        'proximityUUID': 'UUID',
-      },
+      'region': {'identifier': 'id', 'proximityUUID': 'UUID'},
       'event': 'didExitRegion',
     };
     final enter = MonitoringResult.from(map);
@@ -38,10 +32,7 @@ main() {
 
   test('MonitoringEventType must equalTo "didDetermineStateForRegion', () {
     final map = {
-      'region': {
-        'identifier': 'id',
-        'proximityUUID': 'UUID',
-      },
+      'region': {'identifier': 'id', 'proximityUUID': 'UUID'},
       'state': 'unknown',
       'event': 'didDetermineStateForRegion',
     };
@@ -50,18 +41,17 @@ main() {
     expect(enter.region, isNotNull);
     expect(enter.region.identifier, 'id');
     expect(enter.region.proximityUUID, 'UUID');
-    expect(enter.monitoringEventType,
-        MonitoringEventType.didDetermineStateForRegion);
+    expect(
+      enter.monitoringEventType,
+      MonitoringEventType.didDetermineStateForRegion,
+    );
     expect(enter.monitoringState, MonitoringState.unknown);
     expect(enter.toJson, map);
   });
 
   test('MonitoringResult must throw', () {
     final map = {
-      'region': {
-        'identifier': 'id',
-        'proximityUUID': 'UUID',
-      },
+      'region': {'identifier': 'id', 'proximityUUID': 'UUID'},
       'state': 'unknown',
       'event': 'null',
     };

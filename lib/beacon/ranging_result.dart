@@ -14,14 +14,14 @@ class RangingResult {
 
   /// Constructor for deserialize dynamic json into [RangingResult].
   RangingResult.from(dynamic json)
-      : region = Region.fromJson(json['region']),
-        beacons = Beacon.beaconFromArray(json['beacons']);
+    : region = Region.fromJson(json['region']),
+      beacons = Beacon.beaconFromArray(json['beacons']);
 
   /// Return the serializable of this object into [Map].
   dynamic get toJson => <String, dynamic>{
-        'region': region.toJson,
-        'beacons': Beacon.beaconArrayToJson(beacons),
-      };
+    'region': region.toJson,
+    'beacons': Beacon.beaconArrayToJson(beacons),
+  };
 
   @override
   String toString() {

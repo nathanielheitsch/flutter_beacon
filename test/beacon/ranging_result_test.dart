@@ -8,7 +8,7 @@ main() {
     final map = {
       'region': {
         'identifier': 'Cubeacon',
-        'proximityUUID': 'CB10023F-A318-3394-4199-A8730C7C1AEC'
+        'proximityUUID': 'CB10023F-A318-3394-4199-A8730C7C1AEC',
       },
       'beacons': [
         {
@@ -26,8 +26,8 @@ main() {
           'rssi': -58,
           'accuracy': 0.8,
           'proximity': 'immediate',
-        }
-      ]
+        },
+      ],
     };
     final enter = RangingResult.from(map);
 

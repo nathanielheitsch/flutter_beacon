@@ -28,26 +28,31 @@ class FlutterBeacon {
   FlutterBeacon._internal();
 
   /// Method Channel used to communicate to native code.
-  static const MethodChannel _methodChannel =
-      const MethodChannel('flutter_beacon');
+  static const MethodChannel _methodChannel = const MethodChannel(
+    'flutter_beacon',
+  );
 
   /// Event Channel used to communicate to native code ranging beacons.
-  static const EventChannel _rangingChannel =
-      EventChannel('flutter_beacon_event');
+  static const EventChannel _rangingChannel = EventChannel(
+    'flutter_beacon_event',
+  );
 
   /// Event Channel used to communicate to native code monitoring beacons.
-  static const EventChannel _monitoringChannel =
-      EventChannel('flutter_beacon_event_monitoring');
+  static const EventChannel _monitoringChannel = EventChannel(
+    'flutter_beacon_event_monitoring',
+  );
 
   /// Event Channel used to communicate to native code to checking
   /// for bluetooth state changed.
-  static const EventChannel _bluetoothStateChangedChannel =
-      EventChannel('flutter_bluetooth_state_changed');
+  static const EventChannel _bluetoothStateChangedChannel = EventChannel(
+    'flutter_bluetooth_state_changed',
+  );
 
   /// Event Channel used to communicate to native code to checking
   /// for bluetooth state changed.
-  static const EventChannel _authorizationStatusChangedChannel =
-      EventChannel('flutter_authorization_status_changed');
+  static const EventChannel _authorizationStatusChangedChannel = EventChannel(
+    'flutter_authorization_status_changed',
+  );
 
   /// This information does not change from call to call. Cache it.
   Stream<BluetoothState>? _onBluetoothState;
@@ -94,9 +99,12 @@ class FlutterBeacon {
   /// before any of the other initializeScanning or authorizationStatus getters.
   ///
   Future<bool> setLocationAuthorizationTypeDefault(
-      AuthorizationStatus authorizationStatus) async {
+    AuthorizationStatus authorizationStatus,
+  ) async {
     return await _methodChannel.invokeMethod(
-        'setLocationAuthorizationTypeDefault', authorizationStatus.value);
+      'setLocationAuthorizationTypeDefault',
+      authorizationStatus.value,
+    );
   }
 
   /// Check for the latest [AuthorizationStatus] from device.
@@ -109,8 +117,9 @@ class FlutterBeacon {
 
   /// Return `true` when location service is enabled, otherwise `false`.
   Future<bool> get checkLocationServicesIfEnabled async {
-    final result =
-        await _methodChannel.invokeMethod('checkLocationServicesIfEnabled');
+    final result = await _methodChannel.invokeMethod(
+      'checkLocationServicesIfEnabled',
+    );
 
     if (result is bool) {
       return result;
@@ -180,14 +189,16 @@ class FlutterBeacon {
 
   /// Customize duration of the beacon scan on the Android Platform.
   Future<bool> setScanPeriod(int scanPeriod) async {
-    return await _methodChannel
-        .invokeMethod('setScanPeriod', {"scanPeriod": scanPeriod});
+    return await _methodChannel.invokeMethod('setScanPeriod', {
+      "scanPeriod": scanPeriod,
+    });
   }
 
   /// Customize duration spent not scanning between each scan cycle on the Android Platform.
   Future<bool> setBetweenScanPeriod(int scanPeriod) async {
-    return await _methodChannel.invokeMethod(
-        'setBetweenScanPeriod', {"betweenScanPeriod": scanPeriod});
+    return await _methodChannel.invokeMethod('setBetweenScanPeriod', {
+      "betweenScanPeriod": scanPeriod,
+    });
   }
 
   /// Close scanning API.

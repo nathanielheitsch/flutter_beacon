@@ -44,13 +44,19 @@ void main() {
   test('parse authorization value', () {
     expect(AuthorizationStatus.parse('ALLOWED'), AuthorizationStatus.allowed);
     expect(AuthorizationStatus.parse('ALWAYS'), AuthorizationStatus.always);
-    expect(AuthorizationStatus.parse('WHEN_IN_USE'),
-        AuthorizationStatus.whenInUse);
+    expect(
+      AuthorizationStatus.parse('WHEN_IN_USE'),
+      AuthorizationStatus.whenInUse,
+    );
     expect(AuthorizationStatus.parse('DENIED'), AuthorizationStatus.denied);
-    expect(AuthorizationStatus.parse('RESTRICTED'),
-        AuthorizationStatus.restricted);
-    expect(AuthorizationStatus.parse('NOT_DETERMINED'),
-        AuthorizationStatus.notDetermined);
+    expect(
+      AuthorizationStatus.parse('RESTRICTED'),
+      AuthorizationStatus.restricted,
+    );
+    expect(
+      AuthorizationStatus.parse('NOT_DETERMINED'),
+      AuthorizationStatus.notDetermined,
+    );
     expect(() => AuthorizationStatus.parse('null'), throwsException);
   });
 }
