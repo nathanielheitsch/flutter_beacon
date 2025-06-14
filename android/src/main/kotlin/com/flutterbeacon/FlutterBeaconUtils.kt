@@ -34,7 +34,7 @@ object FlutterBeaconUtils {
     private fun beaconToMap(beacon: Beacon): Map<String, Any> {
         val map = HashMap<String, Any>()
 
-        map["proximityUUID"] = beacon.id1.toString().toUpperCase(Locale.US)
+        map["proximityUUID"] = beacon.id1.toString().uppercase(Locale.US)
         map["major"] = beacon.id2.toInt()
         map["minor"] = beacon.id3.toInt()
         map["rssi"] = beacon.rssi
